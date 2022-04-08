@@ -1,0 +1,41 @@
+﻿@page
+@model TestCatalogue.Pages.DepartmentsModel
+@{
+    ViewData["Title"] = "Список отделов";
+}
+
+<h1>Список отделов</h1>
+
+<p>
+    <a asp-page="AddDept">Добавить</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Departments[0].DepartmentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departments[0].Floor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Departments)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartmentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Floor)
+                </td>
+                <td>
+                    <p><a asp-page="./EditDept" asp-route-id="@item.Id">Изменить</a></p>
+                    <p><a asp-page="./DeleteDept" asp-route-id="@item.Id">Удалить</a></p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

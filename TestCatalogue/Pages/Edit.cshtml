@@ -1,0 +1,52 @@
+﻿@page
+@model TestCatalogue.Pages.EditModel
+@{
+    ViewData["Title"] = "Изменение данных о сотруднике";
+}
+
+<h1>Изменение данных о сотруднике</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EmployeeModel.FirstName" class="control-label"></label>
+                <input asp-for="EmployeeModel.FirstName" class="form-control" id="inpFirstName" />
+                <input type="hidden" id="hfCustomer" name="CustomerId"/>
+                <span asp-validation-for="EmployeeModel.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeModel.LastName" class="control-label"></label>
+                <input asp-for="EmployeeModel.LastName" class="form-control" />
+                <span asp-validation-for="EmployeeModel.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeModel.Age" class="control-label"></label>
+                <input asp-for="EmployeeModel.Age" class="form-control" />
+                <span asp-validation-for="EmployeeModel.Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeModel.DepartmentId" class="control-label"></label>
+                @Html.DropDownListFor(m => m.EmployeeModel.DepartmentId, new SelectList(Model.Departments, "Id", "DepartmentName"), new { @class = "form-control" })
+                <span asp-validation-for="EmployeeModel.DepartmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeModel.LanguageId" class="control-label"></label>
+                @Html.DropDownListFor(m => m.EmployeeModel.LanguageId, new SelectList(Model.Languages, "Id", "LanguageName"), new { @class = "form-control" })
+                <span asp-validation-for="EmployeeModel.LanguageId" class="text-danger"></span>
+            </div>
+            <div class="form-group center-aligned">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+                <a asp-page="Index" class="link-primary">Отмена</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

@@ -1,0 +1,27 @@
+﻿@page
+@model TestCatalogue.Pages.DeleteDeptModel
+@{
+    ViewData["Title"] = "Удаление отдела";
+}
+
+<h1>Удаление отдела</h1>
+
+<h3>Вы действительно хотите удалить этот отдел?</h3>
+<div>
+    <h4>Отдел</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Department.DepartmentName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Department.DepartmentName)
+        </dd>     
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Department.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Departments">Отмена</a>
+    </form>
+</div>

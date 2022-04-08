@@ -1,0 +1,48 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+label {
+    display: inline-block;
+    width: 200px;
+    text-align: right;
+}
+
+.form-group {
+    width: 550px;
+}
+
+.form-control {
+    display: inline-block;
+    width: 300px;
+}
+
+.center-aligned {
+    display: flex;
+    align-content: center;
+    justify-content: center;  
+}
+
+.btn-primary {
+    margin-right: 5px;
+}
+
+.link-primary {
+    display: inline-flex;    
+    align-items: center;
+}

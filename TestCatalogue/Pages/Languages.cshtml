@@ -1,0 +1,35 @@
+﻿@page
+@model TestCatalogue.Pages.LanguagesModel
+@{
+    ViewData["Title"] = "Языки программирования";
+}
+
+<h1>Языки программирования</h1>
+
+<p>
+    <a asp-page="AddLang">Добавить</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Languages[0].LanguageName)
+            </th>            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Languages)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LanguageName)
+                </td>
+                <td>
+                    <p><a asp-page="./EditLang" asp-route-id="@item.Id">Изменить</a></p>
+                    <p><a asp-page="./DeleteLang" asp-route-id="@item.Id">Удалить</a></p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

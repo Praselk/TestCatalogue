@@ -1,0 +1,36 @@
+﻿@page
+@model TestCatalogue.Pages.AddDeptModel
+@{
+    ViewData["Title"] = "Добавить отдел";
+}
+
+<h1>Добавить отдел</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DepartmentModel.DepartmentName" class="control-label"></label>
+                <input asp-for="DepartmentModel.DepartmentName" class="form-control" />
+                <span asp-validation-for="DepartmentModel.DepartmentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartmentModel.Floor" class="control-label"></label>
+                <input asp-for="DepartmentModel.Floor" class="form-control" />
+                <span asp-validation-for="DepartmentModel.Floor" class="text-danger"></span>
+            </div>           
+            <div class="form-group center-aligned">
+                <input type="submit" value="Добавить" class="btn btn-primary" />
+                <a asp-page="Departments" class="link-primary">Отмена</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}
